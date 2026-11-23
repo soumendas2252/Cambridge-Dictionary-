@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Cambridge Glass Dictionary — EN &amp; বাংলা</title>
+  <meta name="description" content="Modern glassmorphism Cambridge-style English to English and English to Bengali dictionary with word forms, verb tenses, etymology, and cross-language origins." />
+  <meta name="theme-color" content="#6366f1" id="themeColorMeta" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Glass Dict" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-bn: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 13px;
+      --radius-pill: 999px;
+      --blur: 22px;
+      --transition: 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* 4 Themes */
+    html[data-theme="midnight"] {
+      --bg: #080d22;
+      --bg-grad: radial-gradient(circle at 12% 10%, rgba(99, 102, 241, 0.34), transparent 45%),
+                 radial-gradient(circle at 88% 18%, rgba(56, 189, 248, 0.24), transparent 45%),
+                 radial-gradient(circle at 50% 95%, rgba(168, 85, 247, 0.26), transparent 50%);
+      --blob1: #6366f1;
+      --blob2: #38bdf8;
+      --blob3: #a855f7;
+      --glass: rgba(18, 25, 56, 0.62);
+      --glass-strong: rgba(24, 33, 72, 0.78);
+      --glass-soft: rgba(255, 255, 255, 0.06);
+      --glass-hover: rgba(255, 255, 255, 0.11);
+      --border: rgba(255, 255, 255, 0.13);
+      --border-strong: rgba(165, 180, 252, 0.32);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-soft: #cbd5e1;
+      --accent: #818cf8;
+      --accent-solid: #6366f1;
+      --accent-2: #38bdf8;
+      --accent-glow: rgba(99, 102, 241, 0.38);
+      --bn-bg: rgba(56, 189, 248, 0.11);
+      --bn-border: rgba(56, 189, 248, 0.28);
+      --bn-text: #bae6fd;
+      --shadow: 0 20px 50px rgba(2, 6, 23, 0.55);
+      --badge-cefr: linear-gradient(135deg, #6366f1, #8b5cf6);
+      --danger: #fb7185;
+      --success: #34d399;
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"] {
+      --bg: #eef2ff;
+      --bg-grad: radial-gradient(circle at 12% 10%, rgba(99, 102, 241, 0.22), transparent 48%),
+                 radial-gradient(circle at 86% 14%, rgba(14, 165, 233, 0.20), transparent 46%),
+                 radial-gradient(circle at 50% 94%, rgba(236, 72, 153, 0.15), transparent 52%);
+      --blob1: #818cf8;
+      --blob2: #38bdf8;
+      --blob3: #f472b6;
+      --glass: rgba(255, 255, 255, 0.72);
+      --glass-strong: rgba(255, 255, 255, 0.88);
+      --glass-soft: rgba(15, 23, 42, 0.045);
+      --glass-hover: rgba(79, 70, 229, 0.09);
+      --border: rgba(15, 23, 42, 0.10);
+      --border-strong: rgba(79, 70, 229, 0.30);
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-soft: #334155;
+      --accent: #4f46e5;
+      --accent-solid: #4f46e5;
+      --accent-2: #0284c7;
+      --accent-glow: rgba(79, 70, 229, 0.24);
+      --bn-bg: rgba(14, 165, 233, 0.10);
+      --bn-border: rgba(2, 132, 199, 0.26);
+      --bn-text: #0369a1;
+      --shadow: 0 18px 42px rgba(15, 23, 42, 0.10);
+      --badge-cefr: linear-gradient(135deg, #4f46e5, #0284c7);
+      --danger: #e11d48;
+      --success: #059669;
+      color-scheme: light;
+    }
+
+    html[data-theme="emerald"] {
+      --bg: #041b18;
+      --bg-grad: radial-gradient(circle at 14% 12%, rgba(16, 185, 129, 0.32), transparent 46%),
+                 radial-gradient(circle at 86% 20%, rgba(20, 184, 166, 0.26), transparent 46%),
+                 radial-gradient(circle at 50% 96%, rgba(56, 189, 248, 0.22), transparent 52%);
+      --blob1: #10b981;
+      --blob2: #14b8a6;
+      --blob3: #0ea5e9;
+      --glass: rgba(7, 36, 33, 0.64);
+      --glass-strong: rgba(10, 48, 44, 0.80);
+      --glass-soft: rgba(255, 255, 255, 0.06);
+      --glass-hover: rgba(52, 211, 153, 0.13);
+      --border: rgba(167, 243, 208, 0.15);
+      --border-strong: rgba(52, 211, 153, 0.36);
+      --text: #ecfdf5;
+      --text-muted: #86b6aa;
+      --text-soft: #d1fae5;
+      --accent: #34d399;
+      --accent-solid: #10b981;
+      --accent-2: #2dd4bf;
+      --accent-glow: rgba(16, 185, 129, 0.35);
+      --bn-bg: rgba(45, 212, 191, 0.11);
+      --bn-border: rgba(45, 212, 191, 0.30);
+      --bn-text: #99f6e4;
+      --shadow: 0 20px 50px rgba(2, 18, 16, 0.58);
+      --badge-cefr: linear-gradient(135deg, #10b981, #0d9488);
+      --danger: #fb7185;
+      --success: #34d399;
+      color-scheme: dark;
+    }
+
+    html[data-theme="velvet"] {
+      --bg: #1c0b1e;
+      --bg-grad: radial-gradient(circle at 12% 10%, rgba(244, 63, 94, 0.32), transparent 46%),
+                 radial-gradient(circle at 86% 18%, rgba(245, 158, 11, 0.24), transparent 46%),
+                 radial-gradient(circle at 50% 94%, rgba(192, 38, 211, 0.28), transparent 52%);
+      --blob1: #f43f5e;
+      --blob2: #f59e0b;
+      --blob3: #c026d3;
+      --glass: rgba(44, 17, 46, 0.64);
+      --glass-strong: rgba(58, 22, 60, 0.80);
+      --glass-soft: rgba(255, 255, 255, 0.065);
+      --glass-hover: rgba(251, 113, 133, 0.14);
+      --border: rgba(253, 164, 175, 0.16);
+      --border-strong: rgba(251, 113, 133, 0.38);
+      --text: #fff1f2;
+      --text-muted: #cfa4b4;
+      --text-soft: #ffe4e6;
+      --accent: #fb7185;
+      --accent-solid: #e11d48;
+      --accent-2: #fbbf24;
+      --accent-glow: rgba(244, 63, 94, 0.36);
+      --bn-bg: rgba(251, 191, 36, 0.11);
+      --bn-border: rgba(251, 191, 36, 0.30);
+      --bn-text: #fde68a;
+      --shadow: 0 20px 50px rgba(18, 4, 20, 0.60);
+      --badge-cefr: linear-gradient(135deg, #f43f5e, #f59e0b);
+      --danger: #fda4af;
+      --success: #4ade80;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      background-image: var(--bg-grad);
+      background-attachment: fixed;
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.55;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+      transition: background-color var(--transition), color var(--transition);
+    }
+
+    .bn { font-family: var(--font-bn); }
+
+    /* Ambient Animated Blobs */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(88px);
+      opacity: 0.30;
+      will-change: transform;
+      animation: floatBlob 18s ease-in-out infinite alternate;
+    }
+    .blob.b1 { width: 340px; height: 340px; top: -90px; left: -80px; background: var(--blob1); }
+    .blob.b2 { width: 310px; height: 310px; top: 26%; right: -100px; background: var(--blob2); animation-duration: 22s; animation-delay: -5s; }
+    .blob.b3 { width: 360px; height: 360px; bottom: -120px; left: 24%; background: var(--blob3); animation-duration: 25s; animation-delay: -10s; }
+
+    @keyframes floatBlob {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(28px, -24px) scale(1.08); }
+      100% { transform: translate(-22px, 26px) scale(0.95); }
+    }
+
+    /* Layout Container */
+    .app-shell {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 16px 16px 88px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Glass Card Utility */
+    .glass-panel {
+      background: var(--glass);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    /* Top Header */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: var(--badge-cefr);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.25rem;
+      box-shadow: 0 8px 22px var(--accent-glow);
+      flex-shrink: 0;
+    }
+    .brand-text h1 {
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .brand-text span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Theme Dots */
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+    .theme-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .theme-dot:hover { transform: scale(1.14); }
+    .theme-dot.active { border-color: #fff; box-shadow: 0 0 0 2px var(--accent-solid); transform: scale(1.12); }
+    .theme-dot[data-t="midnight"] { background: linear-gradient(135deg, #1e1b4b, #6366f1); }
+    .theme-dot[data-t="light"]    { background: linear-gradient(135deg, #e0e7ff, #38bdf8); border-color: rgba(15,23,42,0.18); }
+    .theme-dot[data-t="emerald"]  { background: linear-gradient(135deg, #064e3b, #10b981); }
+    .theme-dot[data-t="velvet"]   { background: linear-gradient(135deg, #4c0519, #f43f5e); }
+
+    .icon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 13px;
+      border-radius: var(--radius-pill);
+      background: var(--glass);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(16px);
+      transition: all 0.2s ease;
+    }
+    .icon-btn:hover { background: var(--glass-hover); border-color: var(--border-strong); transform: translateY(-1px); }
+    .icon-btn .count-pill {
+      background: var(--accent-solid);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 1px 6px;
+      border-radius: var(--radius-pill);
+      min-width: 18px;
+      text-align: center;
+    }
+
+    /* Hero Search Panel */
+    .search-panel {
+      padding: 20px;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 20;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 3.6vw, 1.65rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    /* Segmented Language Toggle */
+    .lang-toggle {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 9px 8px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.24s ease;
+      white-space: nowrap;
+    }
+    .lang-btn.active {
+      background: var(--badge-cefr);
+      color: #fff;
+      box-shadow: 0 6px 18px var(--accent-glow);
+    }
+
+    /* Search Input Bar */
+    .search-wrap { position: relative; }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 6px 6px 14px;
+      border-radius: 16px;
+      background: var(--glass-soft);
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .search-bar:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-glow);
+    }
+    .search-bar svg { color: var(--text-muted); flex-shrink: 0; }
+    .search-input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 7px 0;
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+    .clear-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      transition: background 0.15s;
+    }
+    .clear-btn:hover { background: var(--glass-hover); color: var(--text); }
+    .clear-btn[hidden] { display: none; }
+    .search-submit {
+      border: none;
+      background: var(--badge-cefr);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px var(--accent-glow);
+      transition: transform 0.18s ease, filter 0.18s ease;
+      flex-shrink: 0;
+    }
+    .search-submit:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .search-submit:active { transform: scale(0.97); }
+
+    /* Autocomplete Dropdown */
+    .ac-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: var(--glass-strong);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      border: 1px solid var(--border-strong);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      z-index: 40;
+    }
+    .ac-dropdown[hidden] { display: none; }
+    .ac-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .ac-item:last-child { border-bottom: none; }
+    .ac-item:hover, .ac-item.selected { background: var(--glass-hover); }
+    .ac-tag {
+      font-size: 0.68rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Quick Picks */
+    .quick-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+    .quick-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .pill-chip {
+      border: 1px solid var(--border);
+      background: var(--glass-soft);
+      color: var(--text-soft);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .pill-chip:hover {
+      background: var(--glass-hover);
+      border-color: var(--border-strong);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    /* Entry Main Card */
+    .entry-card {
+      padding: 22px;
+      animation: fadeSlideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .entry-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .word-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .badge-cefr { background: var(--badge-cefr); color: #fff; }
+    .badge-src {
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .badge-src.offline { color: var(--success); border-color: rgba(52, 211, 153, 0.35); }
+    .badge-src.live { color: var(--accent-2); border-color: rgba(56, 189, 248, 0.35); }
+
+    .headword {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .bn-hero {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 12px;
+      background: var(--bn-bg);
+      border: 1px solid var(--bn-border);
+      color: var(--bn-text);
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .entry-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .action-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--glass-soft);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .action-circle:hover { background: var(--glass-hover); border-color: var(--border-strong); transform: translateY(-1px); }
+    .action-circle.saved { background: var(--accent-solid); color: #fff; border-color: transparent; box-shadow: 0 6px 18px var(--accent-glow); }
+
+    /* Phonetics Row */
+    .phonetics-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .audio-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: var(--radius-pill);
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .audio-pill:hover { background: var(--glass-hover); border-color: var(--accent); }
+    .audio-pill .region {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: var(--accent-solid);
+      color: #fff;
+    }
+    .audio-pill.uk .region { background: #2563eb; }
+    .audio-pill.us .region { background: #e11d48; }
+    .audio-pill .ipa { color: var(--text-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .audio-pill.speaking { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+
+    /* Tabs */
+    .tabs-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: none;
+    }
+    .tabs-bar::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 9px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { color: var(--text); background: var(--glass-soft); }
+    .tab-btn.active {
+      background: var(--glass-hover);
+      color: var(--accent);
+      border-color: var(--border-strong);
+    }
+
+    /* Section Blocks */
+    .section-block {
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .overview-text { font-size: 0.96rem; color: var(--text-soft); }
+    .overview-bn {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 11px;
+      background: var(--bn-bg);
+      border: 1px solid var(--bn-border);
+      color: var(--bn-text);
+      font-size: 0.96rem;
+    }
+
+    /* POS Group */
+    .pos-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .pos-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 8px;
+      background: var(--accent-solid);
+      color: #fff;
+    }
+    .def-list { list-style: none; display: grid; gap: 12px; }
+    .def-item {
+      padding-left: 14px;
+      border-left: 3px solid var(--accent);
+    }
+    .def-en { font-size: 0.98rem; font-weight: 500; color: var(--text); }
+    .def-bn {
+      margin-top: 4px;
+      font-size: 0.94rem;
+      color: var(--bn-text);
+    }
+    .def-ex {
+      margin-top: 6px;
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .def-ex mark {
+      background: var(--accent-glow);
+      color: var(--text);
+      padding: 0 4px;
+      border-radius: 4px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* Word Family Grid */
+    .family-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 10px;
+    }
+    .family-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .family-pos {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-2);
+      margin-bottom: 8px;
+    }
+    .chip-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+    .word-pill {
+      border: 1px solid var(--border);
+      background: var(--glass-soft);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .word-pill:hover { background: var(--accent-solid); color: #fff; border-color: transparent; transform: translateY(-1px); }
+    .word-pill.antonym { border-color: rgba(251, 113, 133, 0.35); color: var(--danger); }
+    .word-pill.antonym:hover { background: var(--danger); color: #fff; }
+    .word-pill.colloc { border-color: var(--bn-border); color: var(--bn-text); }
+    .word-pill.colloc:hover { background: var(--accent-2); color: #082f49; }
+
+    /* Tenses Table */
+    .tense-table-wrap { overflow-x: auto; }
+    .tense-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+    .tense-table th, .tense-table td {
+      padding: 10px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .tense-table th {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      font-weight: 800;
+    }
+    .tense-table tr:last-child td { border-bottom: none; }
+    .tense-form {
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* Cross Language Cards */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+    .lang-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px;
+    }
+    .lang-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .lang-name {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .lang-word { font-family: var(--font-serif); font-weight: 700; font-size: 1rem; }
+    .lang-meaning { font-size: 0.86rem; color: var(--text-soft); margin-bottom: 5px; }
+    .lang-story { font-size: 0.8rem; color: var(--text-muted); }
+
+    .root-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .root-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--bn-bg);
+      border: 1px solid var(--bn-border);
+      color: var(--bn-text);
+    }
+
+    /* Loading Skeleton */
+    .skeleton-wrap { padding: 26px; display: grid; gap: 14px; }
+    .skel {
+      height: 16px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--glass-soft) 25%, var(--glass-hover) 50%, var(--glass-soft) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.3s infinite;
+    }
+    .skel.lg { height: 42px; width: 55%; }
+    .skel.md { height: 22px; width: 38%; }
+    .skel.box { height: 110px; width: 100%; border-radius: 16px; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* Error / Empty State */
+    .state-card {
+      padding: 36px 22px;
+      text-align: center;
+    }
+    .state-icon {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 14px;
+      border-radius: 16px;
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+    .state-card h2 { font-size: 1.2rem; margin-bottom: 8px; }
+    .state-card p { color: var(--text-muted); font-size: 0.92rem; max-width: 440px; margin: 0 auto 16px; }
+    .suggest-wrap { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+    /* Library Slide-Out Drawer */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.56);
+      backdrop-filter: blur(4px);
+      z-index: 60;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(370px, 92vw);
+      background: var(--glass-strong);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border-left: 1px solid var(--border);
+      z-index: 70;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(104%);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: -16px 0 42px rgba(0, 0, 0, 0.35);
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .drawer-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .drawer-list {
+      flex: 1;
+      overflow-y: auto;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+    .lib-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 11px 13px;
+      border-radius: 13px;
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .lib-item:hover { background: var(--glass-hover); border-color: var(--border-strong); }
+    .lib-word { font-weight: 700; font-size: 0.94rem; }
+    .lib-bn { font-size: 0.82rem; color: var(--bn-text); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--glass-strong);
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 95;
+      transition: all 0.25s ease;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Floating PWA Install Button */
+    #pwaInstallBtn {
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      z-index: 80;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 17px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: var(--badge-cefr);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 28px var(--accent-glow);
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    #pwaInstallBtn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    #pwaInstallBtn[hidden] { display: none; }
+
+    .footer {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    kbd {
+      display: inline-block;
+      padding: 1px 6px;
+      font-size: 0.72rem;
+      border-radius: 5px;
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 560px) {
+      .app-shell { padding: 12px 12px 92px; }
+      .search-panel, .entry-card { padding: 16px; }
+      .lang-btn { font-size: 0.76rem; padding: 8px 4px; }
+      .search-submit { padding: 9px 14px; font-size: 0.84rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <div class="app-shell">
+    <!-- Header -->
+    <header class="top-bar">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">C</div>
+        <div class="brand-text">
+          <h1>Cambridge Glass</h1>
+          <span>EN &amp; বাংলা Dictionary</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <div class="theme-switcher" role="group" aria-label="Switch Theme">
+          <button class="theme-dot active" data-t="midnight" title="Cambridge Midnight" aria-label="Cambridge Midnight theme"></button>
+          <button class="theme-dot" data-t="light" title="Frosted Light" aria-label="Frosted Light theme"></button>
+          <button class="theme-dot" data-t="emerald" title="Aurora Emerald" aria-label="Aurora Emerald theme"></button>
+          <button class="theme-dot" data-t="velvet" title="Sunset Velvet" aria-label="Sunset Velvet theme"></button>
+        </div>
+        <button class="icon-btn" id="openLibraryBtn" type="button">
+          <span>Library</span>
+          <span class="count-pill" id="bookmarkCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Search Card -->
+    <section class="glass-panel search-panel">
+      <div class="eyebrow">Smart Lexical Lookup</div>
+      <div class="hero-title">Search any English word for Cambridge-style depth</div>
+
+      <div class="lang-toggle" role="tablist" aria-label="Language Mode">
+        <button class="lang-btn active" data-mode="dual" type="button">Dual EN+বাংলা</button>
+        <button class="lang-btn" data-mode="en" type="button">EN → EN</button>
+        <button class="lang-btn" data-mode="bn" type="button">EN → বাংলা</button>
+      </div>
+
+      <form class="search-wrap" id="searchForm" autocomplete="off">
+        <div class="search-bar">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="searchInput" class="search-input" type="search" placeholder="Search a word (e.g., logistic, create, serendipity)..." aria-label="Search English word" />
+          <button id="clearBtn" class="clear-btn" type="button" title="Clear" aria-label="Clear search" hidden>✕</button>
+          <button class="search-submit" type="submit">Search</button>
+        </div>
+        <div id="acDropdown" class="ac-dropdown" hidden></div>
+      </form>
+
+      <div class="quick-row" aria-label="Quick Picks">
+        <span class="quick-label">★ Quick Picks:</span>
+        <button class="pill-chip" data-word="serendipity" type="button">serendipity</button>
+        <button class="pill-chip" data-word="eloquent" type="button">eloquent</button>
+        <button class="pill-chip" data-word="resilient" type="button">resilient</button>
+        <button class="pill-chip" data-word="logistic" type="button">logistic</button>
+        <button class="pill-chip" data-word="create" type="button">create</button>
+      </div>
+    </section>
+
+    <!-- Main Result Mount -->
+    <main id="resultRoot" class="glass-panel" aria-live="polite"></main>
+
+    <footer class="footer">
+      Cambridge Glass Dictionary &bull; English &amp; <span class="bn">বাংলা</span> &bull; Zero-API-Key Free Lookup &bull; Press <kbd>/</kbd> to search
+    </footer>
+  </div>
+
+  <!-- Library Slide-out Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="libraryDrawer" aria-label="Saved words and history">
+    <div class="drawer-head">
+      <h2 style="font-family:var(--font-serif);font-size:1.3rem;">My Library</h2>
+      <button class="action-circle" id="closeDrawerBtn" type="button" aria-label="Close Library">✕</button>
+    </div>
+    <div class="drawer-tabs">
+      <button class="lang-btn active" id="libTabBookmarks" type="button">Bookmarks</button>
+      <button class="lang-btn" id="libTabHistory" type="button">Recent</button>
+    </div>
+    <div class="drawer-list" id="libraryList"></div>
+    <button class="icon-btn" id="clearLibBtn" type="button" style="margin-top:12px;justify-content:center;color:var(--danger);">Clear List</button>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- PWA Install Button -->
+  <button id="pwaInstallBtn" type="button" hidden>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span>Install App</span>
+  </button>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* ==================== SAFE STORAGE ==================== */
+    const memStore = {};
+    const storage = {
+      get(key, fallback = null) {
+        try {
+          const v = window.localStorage.getItem(key);
+          return v !== null ? JSON.parse(v) : fallback;
+        } catch (_) {
+          return key in memStore ? memStore[key] : fallback;
+        }
+      },
+      set(key, val) {
+        memStore[key] = val;
+        try { window.localStorage.setItem(key, JSON.stringify(val)); } catch (_) {}
+      }
+    };
+
+    /* ==================== NATIVE ANDROID BRIDGE HELPERS ==================== */
+    const THEME_META = {
+      midnight: { isDark: true,  hex: '#6366f1' },
+      light:    { isDark: false, hex: '#4f46e5' },
+      emerald:  { isDark: true,  hex: '#10b981' },
+      velvet:   { isDark: true,  hex: '#e11d48' }
+    };
+
+    function bridgeHaptic(type = 'tap') {
+      try { window.AndroidBridge?.haptic?.(type); } catch (_) {}
+    }
+
+    function syncWidgetPayload() {
+      try {
+        if (!window.AndroidBridge?.syncWidgetData) return;
+        const payload = {
+          theme: state.theme,
+          bookmarks: state.bookmarks.slice(0, 20),
+          history: state.history.slice(0, 20)
+        };
+        window.AndroidBridge.syncWidgetData(JSON.stringify(payload));
+      } catch (_) {}
+    }
+
+    /* ==================== 5 RICH OFFLINE SHOWCASE ENTRIES ==================== */
+    const OFFLINE_DB = {
+      serendipity: {
+        word: 'serendipity',
+        source: 'offline',
+        cefr: 'C2',
+        phonetics: { uk: '/ˌser.ənˈdɪp.ə.ti/', us: '/ˌser.ənˈdɪp.ə.t̬i/', ukAudio: '', usAudio: '' },
+        bnPrimary: 'আকস্মিক সৌভাগ্য / অপ্রত্যাশিত শুভ আবিষ্কার',
+        bnByPos: { noun: ['আকস্মিক সৌভাগ্য', 'শুভ কাকতালীয় ঘটনা', 'অপ্রত্যাশিত সাফল্য'] },
+        overview: 'The occurrence of finding valuable, pleasant, or agreeable things by chance when you were not actively looking for them.',
+        overviewBn: 'অপ্রত্যাশিতভাবে বা ভাগ্যক্রমে কোনো মূল্যবান, আনন্দদায়ক বা শুভ কিছু খুঁজে পাওয়ার ঘটনা।',
+        meanings: [
+          {
+            pos: 'noun',
+            definitions: [
+              {
+                en: 'The fact of finding interesting or valuable things by chance.',
+                bn: 'ভাগ্যক্রমে বা হঠাৎ করে আকর্ষণীয় ও মূল্যবান কিছু আবিষ্কার করার ঘটনা।',
+                example: 'Finding that rare first-edition book in a tiny village stall was pure serendipity.',
+                exampleBn: 'ছোট্ট গ্রামের দোকানে সেই দুর্লভ প্রথম সংস্করণের বইটি খুঁজে পাওয়া ছিল নিছক আকস্মিক সৌভাগ্য।'
+              },
+              {
+                en: 'An aptitude for making desirable discoveries by accident.',
+                bn: 'অজান্তেই শুভ ও কাঙ্ক্ষিত আবিষ্কার করার সহজাত সৌভাগ্য বা ক্ষমতা।',
+                example: 'Many great scientific breakthroughs, such as penicillin, owe something to serendipity.',
+                exampleBn: 'পেনিসিলিনের মতো বহু মহান বৈজ্ঞানিক আবিষ্কার আকস্মিক সৌভাগ্যের কাছে ঋণী।'
+              }
+            ]
+          }
+        ],
+        wordFamily: {
+          noun: ['serendipity', 'serendipitist'],
+          adjective: ['serendipitous'],
+          adverb: ['serendipitously'],
+          verb: []
+        },
+        tenses: null,
+        collocations: ['pure serendipity', 'happy serendipity', 'by sheer serendipity', 'moment of serendipity', 'scientific serendipity'],
+        synonyms: ['fortuity', 'chance', 'providence', 'fluke', 'good fortune', 'happenstance'],
+        antonyms: ['misfortune', 'design', 'calculation', 'calamity'],
+        related: ['destiny', 'discovery', 'luck', 'coincidence'],
+        etymology: {
+          roots: ['Coined 1754', 'English (Horace Walpole)', 'Persian Fairy Tale', 'Sanskrit Siṃhaladvīpa'],
+          story: 'Coined by English author Horace Walpole on January 28, 1754, in a letter to Horace Mann. He derived it from the Persian fairy tale "The Three Princes of Serendip" (Serendip being an old name for Sri Lanka, from Arabic Sarandīb and Sanskrit Siṃhaladvīpa), whose heroes were always making discoveries by accidents and sagacity.'
+        },
+        crossLanguages: [
+          { lang: 'French', word: 'sérendipité', meaning: 'Making fortunate discoveries by chance', story: 'Borrowed directly from English in the late 20th century, widely used in science and innovation.' },
+          { lang: 'Spanish', word: 'serendipia', meaning: 'Valuable unexpected finding', story: 'Adopted into Spanish academic and literary vocabulary from Walpole’s English coinage.' },
+          { lang: 'German', word: 'Serendipität', meaning: 'Accidental happy discovery', story: 'Used in research methodology to describe unplanned breakthroughs.' }
+        ]
+      },
+
+      eloquent: {
+        word: 'eloquent',
+        source: 'offline',
+        cefr: 'C1',
+        phonetics: { uk: '/ˈel.ə.kwənt/', us: '/ˈel.ə.kwənt/', ukAudio: '', usAudio: '' },
+        bnPrimary: 'বাকপটু / সুবক্তা / ভাবব্যঞ্জক',
+        bnByPos: { adjective: ['বাকপটু', 'সুবক্তা', 'প্রভাবশালীভাবে প্রকাশক্ষম', 'ভাবব্যঞ্জক'] },
+        overview: 'Able to express ideas and emotions clearly, fluently, and persuasively in speech or writing; also used for expressions or silence that convey deep meaning.',
+        overviewBn: 'স্পষ্ট, সাবলীল ও হৃদয়গ্রাহীভাবে বক্তৃতা বা লেখায় মনের ভাব প্রকাশ করতে সক্ষম; গভীর ভাবব্যঞ্জক।',
+        meanings: [
+          {
+            pos: 'adjective',
+            definitions: [
+              {
+                en: 'Giving a clear, strong message; fluent and persuasive in speaking or writing.',
+                bn: 'স্পষ্ট, সাবলীল এবং প্রভাবশালীভাবে কথা বলতে বা লিখতে সক্ষম।',
+                example: 'She delivered an eloquent speech that moved the entire audience to applause.',
+                exampleBn: 'তিনি এমন এক বাকপটু ভাষণ দিলেন যা সমগ্র দর্শককে করতালিতে মুখরিত করে তুলল।'
+              },
+              {
+                en: 'Clearly expressing or indicating a particular feeling or meaning without words.',
+                bn: 'শব্দ ছাড়াই স্পষ্টভাবে কোনো অনুভূতি বা গভীর অর্থ প্রকাশ করে এমন।',
+                example: 'His brief silence was more eloquent than any apology could have been.',
+                exampleBn: 'তার সংক্ষিপ্ত নীরবতা যেকোনো ক্ষমা প্রার্থনার চেয়েও বেশি ভাবব্যঞ্জক ছিল।'
+              }
+            ]
+          }
+        ],
+        wordFamily: {
+          noun: ['eloquence'],
+          adjective: ['eloquent', 'ineloquent'],
+          adverb: ['eloquently'],
+          verb: []
+        },
+        tenses: null,
+        collocations: ['eloquent speech', 'eloquent speaker', 'eloquent testimony', 'eloquent silence', 'eloquent plea'],
+        synonyms: ['articulate', 'fluent', 'expressive', 'persuasive', 'silver-tongued', 'poignant'],
+        antonyms: ['inarticulate', 'halting', 'hesitant', 'tongue-tied'],
+        related: ['rhetoric', 'oratory', 'lucid', 'vivid'],
+        etymology: {
+          roots: ['Latin ēloquēns', 'Latin loquī (to speak)', 'Old French eloquent'],
+          story: 'Entered Middle English in the late 14th century via Old French from Latin ēloquentem (nominative ēloquēns), present participle of ēloquī ("to speak out"), formed from ex- ("out") + loquī ("to speak").'
+        },
+        crossLanguages: [
+          { lang: 'French', word: 'éloquent', meaning: 'Fluent, expressive, persuasive', story: 'Retains the direct Old French inheritance from Latin ēloquēns.' },
+          { lang: 'Spanish', word: 'elocuente', meaning: 'Expressive and convincing', story: 'Used both for charismatic speakers and revealing evidence ("pruebas elocuentes").' },
+          { lang: 'Italian', word: 'eloquente', meaning: 'Persuasive, telling', story: 'Preserves the classical Latin root across literary and everyday speech.' }
+        ]
+      },
+
+      resilient: {
+        word: 'resilient',
+        source: 'offline',
+        cefr: 'C1',
+        phonetics: { uk: '/rɪˈzɪl.jənt/', us: '/rɪˈzɪl.jənt/', ukAudio: '', usAudio: '' },
+        bnPrimary: 'স্থিতিস্থাপক / সহনশীল / ঘুরে দাঁড়াতে সক্ষম',
+        bnByPos: { adjective: ['স্থিতিস্থাপক', 'সহনশীল', 'প্রতিকূলতা কাটিয়ে উঠতে সক্ষম'] },
+        overview: 'Able to recover quickly after illness, hardship, change, or shock; in materials, capable of springing back into shape after bending or stretching.',
+        overviewBn: 'কঠিন পরিস্থিতি, আঘাত বা পরিবর্তনের পর দ্রুত ঘুরে দাঁড়াতে সক্ষম; বস্তুর ক্ষেত্রে চাপের পর আগের আকারে ফিরে আসার ক্ষমতা।',
+        meanings: [
+          {
+            pos: 'adjective',
+            definitions: [
+              {
+                en: 'Able to be happy, successful, or strong again after something difficult or bad has happened.',
+                bn: 'বিপর্যয় বা কঠিন সময়ের পর দ্রুত মানসিক বা শারীরিকভাবে ঘুরে দাঁড়াতে সক্ষম।',
+                example: 'Local communities proved remarkably resilient in rebuilding after the cyclone.',
+                exampleBn: 'ঘূর্ণিঝড়ের পর পুনর্গঠনে স্থানীয় মানুষ অসাধারণ সহনশীলতার পরিচয় দিয়েছে।'
+              },
+              {
+                en: 'Able to quickly return to its usual shape after being bent, stretched, or pressed.',
+                bn: 'চাপ বা টান পড়ার পর দ্রুত পূর্বের আকারে ফিরে আসতে সক্ষম (স্থিতিস্থাপক)।',
+                example: 'The running shoes feature a resilient foam sole that cushions every stride.',
+                exampleBn: 'রানিং জুতোয় রয়েছে স্থিতিস্থাপক ফোম সোল যা প্রতিটি পদক্ষেপে আরাম দেয়।'
+              }
+            ]
+          }
+        ],
+        wordFamily: {
+          noun: ['resilience', 'resiliency'],
+          adjective: ['resilient', 'nonresilient'],
+          adverb: ['resiliently'],
+          verb: []
+        },
+        tenses: null,
+        collocations: ['remarkably resilient', 'resilient economy', 'resilient system', 'resilient spirit', 'emotionally resilient'],
+        synonyms: ['adaptable', 'tough', 'buoyant', 'hardy', 'flexible', 'tenacious'],
+        antonyms: ['fragile', 'vulnerable', 'brittle', 'rigid'],
+        related: ['endurance', 'elasticity', 'fortitude', 'recovery'],
+        etymology: {
+          roots: ['Latin resiliēns', 'Latin re- (back) + salīre (to leap)'],
+          story: 'First recorded in English in the 1670s from Latin resilientem, present participle of resilīre ("to rebound, recoil, leap back"), combining re- ("back") + salīre ("to jump or leap"). Initially a physics term for elasticity, it expanded in the 19th century to describe human grit.'
+        },
+        crossLanguages: [
+          { lang: 'French', word: 'résilient', meaning: 'Impact-resistant; psychologically adaptable', story: 'Popularized in psychology by Boris Cyrulnik to describe overcoming trauma.' },
+          { lang: 'German', word: 'resilient', meaning: 'Resistant to crisis or stress', story: 'Widely adopted in engineering, ecology, and mental health.' },
+          { lang: 'Spanish', word: 'resiliente', meaning: 'Able to adapt positively to adversity', story: 'Officially entered the Diccionario de la Lengua Española from Latin/English scientific usage.' }
+        ]
+      },
+
+      logistic: {
+        word: 'logistic',
+        source: 'offline',
+        cefr: 'C1',
+        phonetics: { uk: '/ləˈdʒɪs.tɪk/', us: '/ləˈdʒɪs.tɪk/', ukAudio: '', usAudio: '' },
+        bnPrimary: 'সরবরাহ-সংক্রান্ত / পরিবহন ও ব্যবস্থাপনা বিষয়ক',
+        bnByPos: {
+          adjective: ['সরবরাহ-সংক্রান্ত', 'ব্যবস্থাপনা বিষয়ক', 'লজিস্টিক'],
+          noun: ['সরবরাহ ও পরিবহন ব্যবস্থা (logistics)']
+        },
+        overview: 'Relating to the detailed organization, transport, supply chain, and coordination of complex operations; in mathematics, describing an S-shaped growth curve.',
+        overviewBn: 'জটিল কার্যক্রম, পণ্য পরিবহন ও সরবরাহ ব্যবস্থাপনার সাথে সম্পর্কিত; গণিতে S-আকৃতির বৃদ্ধির বক্ররেখা বোঝায়।',
+        meanings: [
+          {
+            pos: 'adjective',
+            definitions: [
+              {
+                en: 'Relating to the careful organization and implementation of a complex activity, especially moving supplies, equipment, and people.',
+                bn: 'পণ্য, সরঞ্জাম বা জনবল পরিবহন ও জটিল কাজের সুশৃঙ্খল ব্যবস্থাপনা সংক্রান্ত।',
+                example: 'Providing clean water across the flooded region posed a major logistic challenge.',
+                exampleBn: 'বন্যাকবলিত অঞ্চলে বিশুদ্ধ জল পৌঁছে দেওয়া একটি বড় সরবরাহগত চ্যালেঞ্জ ছিল।'
+              },
+              {
+                en: 'Mathematics & Statistics: Relating to a logistic function or regression curve that models bounded S-shaped growth.',
+                bn: 'গণিত ও পরিসংখ্যান: সীমাবদ্ধ S-আকৃতির বৃদ্ধি বা সম্ভাব্যতা নির্ণয়কারী লজিস্টিক ফাংশন সংক্রান্ত।',
+                example: 'The team applied logistic regression to predict customer churn.',
+                exampleBn: 'গ্রাহক ধরে রাখার পূর্বাভাস দিতে দলটি লজিস্টিক রিগ্রেশন প্রয়োগ করেছে।'
+              }
+            ]
+          }
+        ],
+        wordFamily: {
+          noun: ['logistics', 'logistician'],
+          adjective: ['logistic', 'logistical'],
+          adverb: ['logistically'],
+          verb: []
+        },
+        tenses: null,
+        collocations: ['logistic support', 'logistic regression', 'logistic challenge', 'logistic network', 'supply chain logistics'],
+        synonyms: ['logistical', 'operational', 'organizational', 'tactical', 'supply-chain'],
+        antonyms: ['disorganized', 'impractical', 'chaotic'],
+        related: ['distribution', 'procurement', 'coordination', 'freight'],
+        etymology: {
+          roots: ['Greek logistikós (skilled in calculating)', 'Greek lógos (reason/reckoning)', 'French logistique'],
+          story: 'Originates from Ancient Greek logistikós ("skilled in calculating"), from lógos ("reason, calculation"). In 19th-century military theory, French general Antoine-Henri Jomini popularized logistique (blending Greek calculation with French loger, "to quarter troops") for army supply and movement.'
+        },
+        crossLanguages: [
+          { lang: 'French', word: 'logistique', meaning: 'Supply management & mathematical logic', story: 'Pioneered as a military term by Jomini in 1838 ("Précis de l’Art de la Guerre").' },
+          { lang: 'German', word: 'Logistik', meaning: 'Transport, warehousing & supply-chain science', story: 'Standard term across European industry and engineering.' },
+          { lang: 'Greek', word: 'λογιστική (logistikí)', meaning: 'Accounting / bookkeeping', story: 'Directly continues the ancient Greek root meaning practical arithmetic and reckoning.' }
+        ]
+      },
+
+      create: {
+        word: 'create',
+        source: 'offline',
+        cefr: 'A2',
+        phonetics: { uk: '/kriˈeɪt/', us: '/kriˈeɪt/', ukAudio: '', usAudio: '' },
+        bnPrimary: 'সৃষ্টি করা / তৈরি করা / উদ্ভাবন করা',
+        bnByPos: { verb: ['সৃষ্টি করা', 'তৈরি করা', 'নির্মাণ করা', 'উৎপন্ন করা'] },
+        overview: 'To make something new exist, produce an original work through imagination or skill, or cause a particular situation or feeling to happen.',
+        overviewBn: 'নতুন কিছু সৃষ্টি করা, কল্পনা বা দক্ষতার মাধ্যমে মৌলিক কিছু তৈরি করা, অথবা কোনো পরিস্থিতি বা অনুভূতি উৎপন্ন করা।',
+        meanings: [
+          {
+            pos: 'verb',
+            definitions: [
+              {
+                en: 'To make something new, or invent something original.',
+                bn: 'নতুন কিছু তৈরি বা উদ্ভাবন করা।',
+                example: 'She used recycled glass to create luminous modern sculptures.',
+                exampleBn: 'তিনি পুনর্ব্যবহৃত কাচ দিয়ে উজ্জ্বল আধুনিক ভাস্কর্য তৈরি করেছেন।'
+              },
+              {
+                en: 'To cause a particular situation, condition, or emotional reaction to exist.',
+                bn: 'কোনো নির্দিষ্ট পরিস্থিতি, পরিবেশ বা অনুভূতির সৃষ্টি করা।',
+                example: 'Warm lighting and soft music create a welcoming atmosphere.',
+                exampleBn: 'উষ্ণ আলো এবং মৃদু সঙ্গীত একটি আন্তরিক পরিবেশ তৈরি করে।'
+              }
+            ]
+          }
+        ],
+        wordFamily: {
+          noun: ['creation', 'creator', 'creativity', 'creature'],
+          verb: ['create', 'recreate', 'co-create'],
+          adjective: ['creative', 'uncreative', 'created'],
+          adverb: ['creatively']
+        },
+        tenses: [
+          { tense: 'Present Simple', form: 'create / creates', example: 'Designers create prototypes before building the final product.' },
+          { tense: 'Present Continuous', form: 'am/is/are creating', example: 'We are creating a bilingual dictionary app for students.' },
+          { tense: 'Past Simple', form: 'created', example: 'Horace Walpole created the word "serendipity" in 1754.' },
+          { tense: 'Past Continuous', form: 'was/were creating', example: 'She was creating custom illustrations all afternoon.' },
+          { tense: 'Present Perfect', form: 'have/has created', example: 'The new metro line has created thousands of jobs.' },
+          { tense: 'Future Simple', form: 'will create', example: 'This update will create a smoother offline experience.' }
+        ],
+        collocations: ['create a balance', 'create jobs', 'create an impression', 'create an opportunity', 'create value'],
+        synonyms: ['produce', 'design', 'generate', 'invent', 'craft', 'establish', 'compose'],
+        antonyms: ['destroy', 'demolish', 'ruin', 'dismantle'],
+        related: ['innovate', 'originate', 'architect', 'build'],
+        etymology: {
+          roots: ['Latin creātus', 'Latin creāre (to bring forth)', 'PIE *ḱer- (to grow)'],
+          story: 'Borrowed in the late 14th century from Latin creātus, past participle of creāre ("to produce, bring forth, make"), ultimately from Proto-Indo-European *ḱer- ("to grow")—the same ancient root behind English "cereal" and "crescent".'
+        },
+        crossLanguages: [
+          { lang: 'Spanish', word: 'crear', meaning: 'To create, found, produce', story: 'Direct descendant of Latin creāre, used identically for art, companies, and ideas.' },
+          { lang: 'French', word: 'créer', meaning: 'To create, establish', story: 'Source of English "creation" and "creative" via Old French.' },
+          { lang: 'Italian', word: 'creare', meaning: 'To generate, craft, invent', story: 'Central to Renaissance artistic vocabulary ("creazione").' }
+        ]
+      }
+    };
+
+    /* ==================== VERB CONJUGATION ENGINE ==================== */
+    const IRREGULAR_VERBS = {
+      be: ['am/is/are','was/were','been','being'],
+      have: ['has','had','had','having'],
+      do: ['does','did','done','doing'],
+      go: ['goes','went','gone','going'],
+      say: ['says','said','said','saying'],
+      make: ['makes','made','made','making'],
+      know: ['knows','knew','known','knowing'],
+      think: ['thinks','thought','thought','thinking'],
+      take: ['takes','took','taken','taking'],
+      see: ['sees','saw','seen','seeing'],
+      come: ['comes','came','come','coming'],
+      give: ['gives','gave','given','giving'],
+      find: ['finds','found','found','finding'],
+      tell: ['tells','told','told','telling'],
+      become: ['becomes','became','become','becoming'],
+      show: ['shows','showed','shown','showing'],
+      leave: ['leaves','left','left','leaving'],
+      feel: ['feels','felt','felt','feeling'],
+      put: ['puts','put','put','putting'],
+      bring: ['brings','brought','brought','bringing'],
+      begin: ['begins','began','begun','beginning'],
+      keep: ['keeps','kept','kept','keeping'],
+      hold: ['holds','held','held','holding'],
+      write: ['writes','wrote','written','writing'],
+      stand: ['stands','stood','stood','standing'],
+      hear: ['hears','heard','heard','hearing'],
+      let: ['lets','let','let','letting'],
+      mean: ['means','meant','meant','meaning'],
+      set: ['sets','set','set','setting'],
+      meet: ['meets','met','met','meeting'],
+      run: ['runs','ran','run','running'],
+      pay: ['pays','paid','paid','paying'],
+      sit: ['sits','sat','sat','sitting'],
+      speak: ['speaks','spoke','spoken','speaking'],
+      lie: ['lies','lay','lain','lying'],
+      lead: ['leads','led','led','leading'],
+      read: ['reads','read','read','reading'],
+      grow: ['grows','grew','grown','growing'],
+      lose: ['loses','lost','lost','losing'],
+      fall: ['falls','fell','fallen','falling'],
+      send: ['sends','sent','sent','sending'],
+      build: ['builds','built','built','building'],
+      understand: ['understands','understood','understood','understanding'],
+      draw: ['draws','drew','drawn','drawing'],
+      break: ['breaks','broke','broken','breaking'],
+      spend: ['spends','spent','spent','spending'],
+      cut: ['cuts','cut','cut','cutting'],
+      rise: ['rises','rose','risen','rising'],
+      drive: ['drives','drove','driven','driving'],
+      buy: ['buys','bought','bought','buying'],
+      wear: ['wears','wore','worn','wearing'],
+      choose: ['chooses','chose','chosen','choosing'],
+      eat: ['eats','ate','eaten','eating'],
+      drink: ['drinks','drank','drunk','drinking'],
+      sleep: ['sleeps','slept','slept','sleeping'],
+      teach: ['teaches','taught','taught','teaching'],
+      catch: ['catches','caught','caught','catching'],
+      fly: ['flies','flew','flown','flying'],
+      forget: ['forgets','forgot','forgotten','forgetting'],
+      sing: ['sings','sang','sung','singing'],
+      swim: ['swims','swam','swum','swimming'],
+      win: ['wins','won','won','winning'],
+      get: ['gets','got','gotten','getting']
+    };
+
+    function conjugateVerb(rawBase) {
+      const base = (rawBase || '').toLowerCase().trim();
+      if (!base || /\s/.test(base)) return null;
+
+      let third, past, part, ing;
+      if (IRREGULAR_VERBS[base]) {
+        [third, past, part, ing] = IRREGULAR_VERBS[base];
+      } else {
+        // 3rd person singular
+        if (/(s|x|z|ch|sh|o)$/.test(base)) third = base + 'es';
+        else if (/[^aeiou]y$/.test(base)) third = base.slice(0, -1) + 'ies';
+        else third = base + 's';
+
+        // Past & participle
+        if (/e$/.test(base)) {
+          past = base + 'd';
+        } else if (/[^aeiou]y$/.test(base)) {
+          past = base.slice(0, -1) + 'ied';
+        } else if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(base) && base.length <= 5) {
+          past = base + base.slice(-1) + 'ed';
+        } else {
+          past = base + 'ed';
+        }
+        part = past;
+
+        // Present participle (-ing)
+        if (/ie$/.test(base)) ing = base.slice(0, -2) + 'ying';
+        else if (/[^e]e$/.test(base)) ing = base.slice(0, -1) + 'ing';
+        else if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(base) && base.length <= 5) ing = base + base.slice(-1) + 'ing';
+        else ing = base + 'ing';
+      }
+
+      return [
+        { tense: 'Present Simple', form: `${base} / ${third}`, example: `They regularly ${base} in everyday contexts.` },
+        { tense: 'Present Continuous', form: `am/is/are ${ing}`, example: `She is currently ${ing} with great care.` },
+        { tense: 'Past Simple', form: past, example: `Yesterday, the team ${past} effectively.` },
+        { tense: 'Past Continuous', form: `was/were ${ing}`, example: `He was ${ing} when the announcement arrived.` },
+        { tense: 'Present Perfect', form: `have/has ${part}`, example: `Many experts have ${part} this approach recently.` },
+        { tense: 'Future Simple', form: `will ${base}`, example: `Tomorrow, we will ${base} at the right moment.` }
+      ];
+    }
+
+    /* ==================== APP STATE ==================== */
+    const state = {
+      theme: storage.get('glass_dict_theme', 'midnight'),
+      mode: storage.get('glass_dict_mode', 'dual'),
+      tab: 'definitions',
+      libTab: 'bookmarks',
+      bookmarks: storage.get('glass_dict_bookmarks', []),
+      history: storage.get('glass_dict_history', []),
+      navStack: [],
+      currentEntry: null,
+      cache: {},
+      acIndex: -1,
+      acItems: []
+    };
+
+    /* ==================== DOM REFS ==================== */
+    const $ = (id) => document.getElementById(id);
+    const resultRoot = $('resultRoot');
+    const searchInput = $('searchInput');
+    const clearBtn = $('clearBtn');
+    const acDropdown = $('acDropdown');
+    const drawer = $('libraryDrawer');
+    const drawerBackdrop = $('drawerBackdrop');
+    const toastEl = $('toast');
+
+    let toastTimer = null;
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2300);
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function highlightWord(sentence, word) {
+      const safe = escapeHtml(sentence);
+      if (!word) return safe;
+      const escapedW = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return safe.replace(new RegExp(`(\\b${escapedW}[a-z]*\\b)`, 'gi'), '<mark>$1</mark>');
+    }
+
+    /* ==================== THEME & MODE ==================== */
+    function applyTheme(t, silent = false) {
+      if (!THEME_META[t]) t = 'midnight';
+      state.theme = t;
+      document.documentElement.setAttribute('data-theme', t);
+      storage.set('glass_dict_theme', t);
+      document.querySelectorAll('.theme-dot').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.t === t);
+      });
+      const meta = THEME_META[t];
+      const themeMetaEl = $('themeColorMeta');
+      if (themeMetaEl) themeMetaEl.setAttribute('content', meta.hex);
+      try { window.AndroidBridge?.syncTheme?.(meta.isDark, meta.hex); } catch (_) {}
+      if (!silent) {
+        bridgeHaptic('theme');
+        syncWidgetPayload();
+      }
+    }
+
+    function applyMode(m) {
+      state.mode = m;
+      storage.set('glass_dict_mode', m);
+      document.querySelectorAll('.lang-toggle .lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === m);
+      });
+      if (state.currentEntry) renderEntry(state.currentEntry);
+    }
+
+    /* ==================== PRONUNCIATION (AUDIO + WEB SPEECH + ANDROID FALLBACK) ==================== */
+    let activeAudio = null;
+    function speakWord(word, accent, audioUrl, btnEl) {
+      bridgeHaptic('speak');
+      document.querySelectorAll('.audio-pill.speaking').forEach(b => b.classList.remove('speaking'));
+      if (btnEl) btnEl.classList.add('speaking');
+      const clearAnim = () => btnEl && btnEl.classList.remove('speaking');
+
+      if (activeAudio) {
+        try { activeAudio.pause(); } catch (_) {}
+        activeAudio = null;
+      }
+
+      if (audioUrl) {
+        try {
+          const audio = new Audio(audioUrl);
+          activeAudio = audio;
+          audio.onended = clearAnim;
+          audio.onerror = () => fallbackTTS(word, accent, clearAnim);
+          const p = audio.play();
+          if (p && typeof p.catch === 'function') p.catch(() => fallbackTTS(word, accent, clearAnim));
+          return;
+        } catch (_) {}
+      }
+      fallbackTTS(word, accent, clearAnim);
+    }
+
+    function fallbackTTS(word, accent, onDone) {
+      const lang = accent === 'uk' ? 'en-GB' : 'en-US';
+      if ('speechSynthesis' in window) {
+        try {
+          window.speechSynthesis.cancel();
+          const utter = new SpeechSynthesisUtterance(word);
+          utter.lang = lang;
+          utter.rate = 0.94;
+          const voices = window.speechSynthesis.getVoices();
+          const match = voices.find(v => v.lang.toLowerCase().startsWith(lang.toLowerCase())) ||
+                        voices.find(v => v.lang.toLowerCase().startsWith('en'));
+          if (match) utter.voice = match;
+          utter.onend = onDone;
+          utter.onerror = () => {
+            try { window.AndroidBridge?.speak?.(word, accent); } catch (_) {}
+            setTimeout(onDone, 900);
+          };
+          window.speechSynthesis.speak(utter);
+          setTimeout(onDone, 2200);
+          return;
+        } catch (_) {}
+      }
+      try { window.AndroidBridge?.speak?.(word, accent); } catch (_) {}
+      setTimeout(onDone, 900);
+    }
+
+    /* ==================== FREE MULTI-API PIPELINE ==================== */
+    async function fetchJson(url, retries = 1, timeoutMs = 8500) {
+      for (let i = 0; i <= retries; i++) {
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), timeoutMs);
+        try {
+          const res = await fetch(url, { signal: ctrl.signal });
+          clearTimeout(tid);
+          if (res.status >= 500 && i < retries) continue;
+          if (!res.ok) return null;
+          return await res.json();
+        } catch (_) {
+          clearTimeout(tid);
+          if (i === retries) return null;
+        }
+      }
+      return null;
+    }
+
+    function stripHtml(html) {
+      const div = document.createElement('div');
+      div.innerHTML = html || '';
+      return (div.textContent || div.innerText || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function freqToCefr(tags = []) {
+      const fTag = (tags || []).find(t => t.startsWith('f:'));
+      if (!fTag) return 'B2';
+      const freq = parseFloat(fTag.slice(2));
+      if (isNaN(freq)) return 'B2';
+      if (freq >= 60) return 'A1';
+      if (freq >= 20) return 'A2';
+      if (freq >= 6)  return 'B1';
+      if (freq >= 1.8) return 'B2';
+      if (freq >= 0.4) return 'C1';
+      return 'C2';
+    }
+
+    async function translateToBn(text) {
+      if (!text || !text.trim()) return { primary: '', byPos: {} };
+      const q = encodeURIComponent(text.trim());
+      // Primary: Free Google GTX endpoint
+      const gtx = await fetchJson(
+        `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=bn&dt=t&dt=bd&q=${q}`,
+        0,
+        6500
+      );
+      if (Array.isArray(gtx)) {
+        const primary = Array.isArray(gtx[0]) ? gtx[0].map(p => p && p[0]).filter(Boolean).join('') : '';
+        const byPos = {};
+        if (Array.isArray(gtx[1])) {
+          gtx[1].forEach(group => {
+            if (Array.isArray(group) && group[0] && Array.isArray(group[1])) {
+              byPos[group[0].toLowerCase()] = group[1].slice(0, 5);
+            }
+          });
+        }
+        if (primary) return { primary, byPos };
+      }
+
+      // Fallback: Free MyMemory API
+      const mm = await fetchJson(
+        `https://api.mymemory.translated.net/get?q=${q}&langpair=en|bn`,
+        0,
+        6500
+      );
+      if (mm?.responseData?.translatedText) {
+        return { primary: mm.responseData.translatedText, byPos: {} };
+      }
+      return { primary: '', byPos: {} };
+    }
+
+    async function batchTranslateBn(sentences) {
+      const clean = sentences.filter(Boolean).slice(0, 8);
+      if (!clean.length) return [];
+      const sep = ' ||| ';
+      const res = await translateToBn(clean.join(sep));
+      if (!res.primary) return clean.map(() => '');
+      const parts = res.primary.split(/\s*\|\|\|\s*/);
+      return clean.map((_, idx) => (parts[idx] || '').trim());
+    }
+
+    async function fetchWiktionaryDetails(word) {
+      const enc = encodeURIComponent(word);
+      const data = await fetchJson(
+        `https://en.wiktionary.org/w/api.php?action=parse&page=${enc}&prop=text|sections&format=json&origin=*`,
+        0,
+        7500
+      );
+      if (!data?.parse?.text?.['*']) return { etymology: null, derived: [], crossLanguages: [] };
+
+      const html = data.parse.text['*'];
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const root = doc.querySelector('.mw-parser-output') || doc.body;
+
+      let etymologyText = '';
+      const derivedTerms = new Set();
+      const crossLanguages = [];
+
+      // Walk top-level headings to separate English from other languages
+      const children = Array.from(root.children);
+      let currentLang = '';
+      let currentSection = '';
+      let langBuffer = {};
+
+      for (const el of children) {
+        const tag = el.tagName;
+        const h2 = tag === 'H2' ? el : (el.classList.contains('mw-heading2') ? el.querySelector('h2') : null);
+        const h3 = (tag === 'H3' || tag === 'H4') ? el : ((el.classList.contains('mw-heading3') || el.classList.contains('mw-heading4')) ? el.querySelector('h3, h4') : null);
+
+        if (h2) {
+          currentLang = (h2.textContent || '').replace(/\[edit\]/gi, '').trim();
+          currentSection = '';
+          if (currentLang && currentLang !== 'English' && currentLang !== 'Translingual' && !langBuffer[currentLang]) {
+            langBuffer[currentLang] = { lang: currentLang, meaning: '', story: '' };
+          }
+          continue;
+        }
+        if (h3) {
+          currentSection = (h3.textContent || '').replace(/\[edit\]/gi, '').trim().toLowerCase();
+          continue;
+        }
+
+        if (currentLang === 'English') {
+          if (currentSection.startsWith('etymology') && tag === 'P' && !etymologyText) {
+            const txt = stripHtml(el.innerHTML);
+            if (txt.length > 20) etymologyText = txt;
+          }
+          if ((currentSection.includes('derived') || currentSection.includes('related')) && derivedTerms.size < 18) {
+            el.querySelectorAll('a').forEach(a => {
+              const t = (a.textContent || '').trim();
+              if (/^[a-zA-Z-]{3,22}$/.test(t) && t.toLowerCase() !== word.toLowerCase()) {
+                derivedTerms.add(t.toLowerCase());
+              }
+            });
+          }
+        } else if (currentLang && langBuffer[currentLang]) {
+          const entry = langBuffer[currentLang];
+          if (currentSection.startsWith('etymology') && tag === 'P' && !entry.story) {
+            const txt = stripHtml(el.innerHTML);
+            if (txt.length > 12) entry.story = txt.slice(0, 220);
+          }
+          if (tag === 'OL' && !entry.meaning) {
+            const li = el.querySelector('li');
+            if (li) {
+              // Clone and remove nested ul/dl quotations
+              const clone = li.cloneNode(true);
+              clone.querySelectorAll('ul, dl, .HQToggle').forEach(n => n.remove());
+              const m = stripHtml(clone.innerHTML);
+              if (m.length > 2) entry.meaning = m.slice(0, 180);
+            }
+          }
+        }
+      }
+
+      Object.values(langBuffer).forEach(item => {
+        if (item.meaning && crossLanguages.length < 6) {
+          crossLanguages.push({
+            lang: item.lang,
+            word,
+            meaning: item.meaning,
+            story: item.story || `Appears in ${item.lang} lexicon with the same spelling.`
+          });
+        }
+      });
+
+      // Extract root lineage chips from etymology text
+      const roots = [];
+      const rootMatchers = [
+        'Old English', 'Middle English', 'Old French', 'Middle French', 'Anglo-Norman',
+        'Latin', 'Medieval Latin', 'Late Latin', 'Ancient Greek', 'Greek', 'Sanskrit',
+        'Arabic', 'Persian', 'Old Norse', 'German', 'Dutch', 'Italian', 'Spanish', 'Proto-Indo-European'
+      ];
+      if (etymologyText) {
+        rootMatchers.forEach(r => {
+          if (etymologyText.includes(r) && !roots.includes(r) && roots.length < 5) roots.push(r);
+        });
+      }
+
+      return {
+        etymology: etymologyText ? { roots, story: etymologyText } : null,
+        derived: Array.from(derivedTerms),
+        crossLanguages
+      };
+    }
+
+    async function fetchLiveEntry(rawWord) {
+      const word = rawWord.trim().toLowerCase();
+      const enc = encodeURIComponent(word);
+
+      const [freeDict, dmMeta, dmSyn, dmAnt, dmColloc, dmRel, bnWord, wikiExtra] = await Promise.all([
+        fetchJson(`https://api.dictionaryapi.dev/api/v2/entries/en/${enc}`, 1, 7500),
+        fetchJson(`https://api.datamuse.com/words?sp=${enc}&md=pf&max=1`, 0, 5000),
+        fetchJson(`https://api.datamuse.com/words?rel_syn=${enc}&max=10`, 0, 5000),
+        fetchJson(`https://api.datamuse.com/words?rel_ant=${enc}&max=8`, 0, 5000),
+        fetchJson(`https://api.datamuse.com/words?lc=${enc}&max=8`, 0, 5000),
+        fetchJson(`https://api.datamuse.com/words?ml=${enc}&md=p&max=10`, 0, 5000),
+        translateToBn(word),
+        fetchWiktionaryDetails(word)
+      ]);
+
+      let meanings = [];
+      let uk = '', us = '', ukAudio = '', usAudio = '';
+      let dictOrigin = '';
+      const synSet = new Set();
+      const antSet = new Set();
+
+      if (Array.isArray(freeDict) && freeDict.length) {
+        const posMap = new Map();
+        for (const item of freeDict) {
+          if (item.origin && !dictOrigin) dictOrigin = item.origin;
+          for (const ph of (item.phonetics || [])) {
+            const audio = ph.audio || '';
+            const txt = ph.text || '';
+            if (audio.includes('-uk') || audio.includes('/uk')) {
+              if (!ukAudio) ukAudio = audio;
+              if (txt && !uk) uk = txt;
+            } else if (audio.includes('-us') || audio.includes('/us')) {
+              if (!usAudio) usAudio = audio;
+              if (txt && !us) us = txt;
+            } else {
+              if (txt && !uk) uk = txt;
+              if (txt && !us) us = txt;
+              if (audio && !usAudio) usAudio = audio;
+            }
+          }
+          if (!uk && item.phonetic) uk = item.phonetic;
+          if (!us && item.phonetic) us = item.phonetic;
+
+          for (const m of (item.meanings || [])) {
+            const pos = (m.partOfSpeech || 'other').toLowerCase();
+            if (!posMap.has(pos)) posMap.set(pos, []);
+            (m.synonyms || []).forEach(s => synSet.add(s));
+            (m.antonyms || []).forEach(a => antSet.add(a));
+            for (const d of (m.definitions || [])) {
+              if (posMap.get(pos).length < 4 && d.definition) {
+                posMap.get(pos).push({
+                  en: d.definition,
+                  bn: '',
+                  example: d.example || '',
+                  exampleBn: ''
+                });
+              }
+              (d.synonyms || []).forEach(s => synSet.add(s));
+              (d.antonyms || []).forEach(a => antSet.add(a));
+            }
+          }
+        }
+        meanings = Array.from(posMap.entries()).map(([pos, definitions]) => ({ pos, definitions }));
+      } else {
+        // Fallback: Wiktionary REST definition endpoint
+        const wikiRest = await fetchJson(`https://en.wiktionary.org/api/rest_v1/page/definition/${enc}`, 0, 7000);
+        if (wikiRest?.en && Array.isArray(wikiRest.en)) {
+          meanings = wikiRest.en.slice(0, 4).map(sec => ({
+            pos: (sec.partOfSpeech || 'other').toLowerCase(),
+            definitions: (sec.definitions || []).slice(0, 4).map(d => ({
+              en: stripHtml(d.definition),
+              bn: '',
+              example: Array.isArray(d.examples) && d.examples[0] ? stripHtml(d.examples[0]) : '',
+              exampleBn: ''
+            })).filter(d => d.en)
+          })).filter(m => m.definitions.length);
+        }
+      }
+
+      if (!meanings.length) return null;
+
+      // Enrich synonyms, antonyms, collocations, related
+      (dmSyn || []).forEach(x => x.word && synSet.add(x.word));
+      (dmAnt || []).forEach(x => x.word && antSet.add(x.word));
+      const collocations = (dmColloc || []).map(x => `${word} ${x.word}`).slice(0, 8);
+      const related = (dmRel || []).map(x => x.word).filter(w => w !== word && !synSet.has(w)).slice(0, 10);
+
+      // Build Word Family (Noun / Verb / Adjective / Adverb) using Datamuse stem search + Wiktionary derived terms
+      const stem = word.length > 5 ? word.slice(0, Math.min(word.length - 1, 6)) : word;
+      const dmForms = await fetchJson(`https://api.datamuse.com/words?sp=${encodeURIComponent(stem)}*&md=p&max=24`, 0, 4500);
+      const family = { noun: new Set(), verb: new Set(), adjective: new Set(), adverb: new Set() };
+      const posLetters = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb' };
+
+      meanings.forEach(m => {
+        if (family[m.pos]) family[m.pos].add(word);
+      });
+
+      const derivedSet = new Set(wikiExtra.derived || []);
+      (dmForms || []).forEach(item => {
+        const w = (item.word || '').toLowerCase();
+        if (!/^[a-z]{3,22}$/.test(w)) return;
+        const tags = item.tags || [];
+        for (const [k, bucket] of Object.entries(posLetters)) {
+          if (tags.includes(k) && family[bucket].size < 6) {
+            if (w.startsWith(stem) || derivedSet.has(w)) family[bucket].add(w);
+          }
+        }
+      });
+
+      // Add remaining Wiktionary derived terms heuristically if buckets are light
+      for (const d of derivedSet) {
+        if (d.endsWith('ly') && family.adverb.size < 5) family.adverb.add(d);
+        else if (/(tion|sion|ment|ness|ity|ism|ist|er|or)$/.test(d) && family.noun.size < 5) family.noun.add(d);
+        else if (/(ive|ous|ful|less|able|ible|al|ic)$/.test(d) && family.adjective.size < 5) family.adjective.add(d);
+      }
+
+      // Tenses if verb form exists
+      let verbBase = null;
+      if (meanings.some(m => m.pos === 'verb')) {
+        verbBase = word;
+      } else if (family.verb.size > 0) {
+        verbBase = Array.from(family.verb)[0];
+      }
+      const tenses = verbBase ? conjugateVerb(verbBase) : null;
+
+      // Translate top definitions + overview to Bengali in one batched request
+      const overview = meanings[0].definitions[0].en;
+      const toTranslate = [overview];
+      const defRefs = [];
+      meanings.forEach(m => {
+        m.definitions.slice(0, 2).forEach(d => {
+          toTranslate.push(d.en);
+          defRefs.push(d);
+        });
+      });
+      const translated = await batchTranslateBn(toTranslate);
+      const overviewBn = translated[0] || '';
+      defRefs.forEach((d, i) => { d.bn = translated[i + 1] || ''; });
+
+      const cefr = freqToCefr(dmMeta?.[0]?.tags || []);
+      const etymology = wikiExtra.etymology || (dictOrigin ? { roots: ['Historical Origin'], story: dictOrigin } : null);
+
+      return {
+        word,
+        source: 'live',
+        cefr,
+        phonetics: { uk: uk || `/${word}/`, us: us || uk || `/${word}/`, ukAudio, usAudio },
+        bnPrimary: bnWord.primary || 'অনুবাদ উপলব্ধ নয়',
+        bnByPos: bnWord.byPos || {},
+        overview,
+        overviewBn,
+        meanings,
+        wordFamily: {
+          noun: Array.from(family.noun),
+          verb: Array.from(family.verb),
+          adjective: Array.from(family.adjective),
+          adverb: Array.from(family.adverb)
+        },
+        verbBase,
+        tenses,
+        collocations,
+        synonyms: Array.from(synSet).slice(0, 14),
+        antonyms: Array.from(antSet).slice(0, 10),
+        related,
+        etymology,
+        crossLanguages: wikiExtra.crossLanguages || []
+      };
+    }
+
+    /* ==================== RENDERING ==================== */
+    function renderSkeleton() {
+      resultRoot.innerHTML = `
+        <div class="skeleton-wrap">
+          <div class="skel md"></div>
+          <div class="skel lg"></div>
+          <div class="skel" style="width:45%"></div>
+          <div class="skel box"></div>
+          <div class="skel box" style="height:84px"></div>
+        </div>
+      `;
+    }
+
+    async function renderNotFound(word) {
+      const sugData = await fetchJson(`https://api.datamuse.com/sug?s=${encodeURIComponent(word)}&max=5`, 0, 4000);
+      const suggestions = (sugData || []).map(x => x.word).filter(Boolean);
+      const sugHtml = suggestions.length
+        ? `<div class="suggest-wrap">${suggestions.map(s => `<button class="word-pill" data-lookup="${escapeHtml(s)}" type="button">${escapeHtml(s)}</button>`).join('')}</div>`
+        : '';
+
+      resultRoot.innerHTML = `
+        <div class="state-card">
+          <div class="state-icon">?</div>
+          <h2>Couldn't find "${escapeHtml(word)}"</h2>
+          <p>${suggestions.length ? 'Check your spelling or try one of these close matches:' : 'Check your internet connection or try one of the offline Quick Pick words above.'}</p>
+          ${sugHtml}
+          <button class="search-submit" id="backWotdBtn" type="button">Return to Word of the Day</button>
+        </div>
+      `;
+      resultRoot.querySelectorAll('[data-lookup]').forEach(btn => {
+        btn.addEventListener('click', () => lookupWord(btn.dataset.lookup));
+      });
+      const backBtn = $('backWotdBtn');
+      if (backBtn) backBtn.addEventListener('click', () => lookupWord('serendipity'));
+    }
+
+    function isBookmarked(word) {
+      return state.bookmarks.some(b => b.word.toLowerCase() === word.toLowerCase());
+    }
+
+    function renderTabBody(entry) {
+      const showEn = state.mode === 'dual' || state.mode === 'en';
+      const showBn = state.mode === 'dual' || state.mode === 'bn';
+
+      if (state.tab === 'definitions') {
+        const bnPosEntries = Object.entries(entry.bnByPos || {}).filter(([, arr]) => arr && arr.length);
+        const bnPosBlock = showBn && bnPosEntries.length ? `
+          <div class="section-block">
+            <div class="section-title"><span>Bengali Equivalents (বাংলা অর্থ)</span></div>
+            <div style="display:grid;gap:8px;">
+              ${bnPosEntries.map(([pos, list]) => `
+                <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+                  <span class="pos-tag">${escapeHtml(pos)}</span>
+                  <span class="bn" style="color:var(--bn-text);font-size:0.98rem;font-weight:500;">${list.map(escapeHtml).join(' • ')}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : '';
+
+        const meaningsHtml = entry.meanings.map(m => `
+          <div class="section-block">
+            <div class="pos-header"><span class="pos-tag">${escapeHtml(m.pos)}</span></div>
+            <ul class="def-list">
+              ${m.definitions.map(d => `
+                <li class="def-item">
+                  ${showEn ? `<div class="def-en">${escapeHtml(d.en)}</div>` : ''}
+                  ${showBn && d.bn ? `<div class="def-bn bn">${escapeHtml(d.bn)}</div>` : ''}
+                  ${d.example && showEn ? `<div class="def-ex">“${highlightWord(d.example, entry.word)}”</div>` : ''}
+                  ${d.exampleBn && showBn ? `<div class="def-ex bn" style="color:var(--bn-text);font-style:normal;opacity:0.9;">“${escapeHtml(d.exampleBn)}”</div>` : ''}
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        `).join('');
+
+        return `
+          <div class="section-block">
+            <div class="section-title"><span>Overview</span></div>
+            ${showEn ? `<p class="overview-text">${escapeHtml(entry.overview)}</p>` : ''}
+            ${showBn && entry.overviewBn ? `<div class="overview-bn bn">${escapeHtml(entry.overviewBn)}</div>` : ''}
+          </div>
+          ${bnPosBlock}
+          ${meaningsHtml}
+        `;
+      }
+
+      if (state.tab === 'forms') {
+        const fam = entry.wordFamily || {};
+        const groups = [
+          { label: 'Noun', items: fam.noun || [] },
+          { label: 'Verb', items: fam.verb || [] },
+          { label: 'Adjective', items: fam.adjective || [] },
+          { label: 'Adverb', items: fam.adverb || [] }
+        ];
+        const hasAnyForm = groups.some(g => g.items.length);
+
+        const familyHtml = `
+          <div class="section-block">
+            <div class="section-title"><span>Word Family Matrix</span><span style="font-size:0.7rem;color:var(--text-muted);text-transform:none;">Tap any form to look up</span></div>
+            ${hasAnyForm ? `
+              <div class="family-grid">
+                ${groups.map(g => `
+                  <div class="family-card">
+                    <div class="family-pos">${g.label}</div>
+                    <div class="chip-wrap">
+                      ${g.items.length
+                        ? g.items.map(w => `<button class="word-pill" data-lookup="${escapeHtml(w)}" type="button">${escapeHtml(w)}</button>`).join('')
+                        : `<span style="font-size:0.8rem;color:var(--text-muted);">No common ${g.label.toLowerCase()} form</span>`
+                      }
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : `<p style="color:var(--text-muted);font-size:0.9rem;">No derived word forms found for this entry.</p>`}
+          </div>
+        `;
+
+        const tensesHtml = entry.tenses ? `
+          <div class="section-block">
+            <div class="section-title"><span>Verb Tenses &amp; Usage (${escapeHtml(entry.verbBase || entry.word)})</span></div>
+            <div class="tense-table-wrap">
+              <table class="tense-table">
+                <thead>
+                  <tr><th>Tense</th><th>Form</th><th>Example Usage</th></tr>
+                </thead>
+                <tbody>
+                  ${entry.tenses.map(t => `
+                    <tr>
+                      <td style="font-weight:700;white-space:nowrap;">${escapeHtml(t.tense)}</td>
+                      <td class="tense-form">${escapeHtml(t.form)}</td>
+                      <td style="color:var(--text-soft);">${highlightWord(t.example, entry.verbBase || entry.word)}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ` : `
+          <div class="section-block">
+            <div class="section-title"><span>Verb Tenses &amp; Conjugations</span></div>
+            <p style="color:var(--text-muted);font-size:0.88rem;">"${escapeHtml(entry.word)}" does not have a direct verb form to conjugate. Search any verb (like <button class="word-pill" data-lookup="create" type="button" style="padding:2px 9px;">create</button> or <button class="word-pill" data-lookup="speak" type="button" style="padding:2px 9px;">speak</button>) to inspect its full 6-tense conjugation table.</p>
+          </div>
+        `;
+
+        return familyHtml + tensesHtml;
+      }
+
+      if (state.tab === 'usage') {
+        const examples = [];
+        entry.meanings.forEach(m => m.definitions.forEach(d => {
+          if (d.example) examples.push({ pos: m.pos, en: d.example, bn: d.exampleBn });
+        }));
+
+        return `
+          <div class="section-block">
+            <div class="section-title"><span>Usage Examples</span></div>
+            ${examples.length ? `
+              <ul class="def-list">
+                ${examples.map(ex => `
+                  <li class="def-item">
+                    <div style="font-size:0.94rem;">“${highlightWord(ex.en, entry.word)}” <span style="font-size:0.72rem;color:var(--text-muted);">(${escapeHtml(ex.pos)})</span></div>
+                    ${showBn && ex.bn ? `<div class="bn" style="font-size:0.9rem;color:var(--bn-text);margin-top:3px;">“${escapeHtml(ex.bn)}”</div>` : ''}
+                  </li>
+                `).join('')}
+              </ul>
+            ` : `<p style="color:var(--text-muted);font-size:0.88rem;">Try pairing the collocations below to build natural sentences with "${escapeHtml(entry.word)}".</p>`}
+          </div>
+
+          <div class="section-block">
+            <div class="section-title"><span>Common Collocations</span></div>
+            <div class="chip-wrap">
+              ${entry.collocations?.length
+                ? entry.collocations.map(c => `<span class="word-pill colloc" style="cursor:default;">${escapeHtml(c)}</span>`).join('')
+                : `<span style="color:var(--text-muted);font-size:0.86rem;">No common collocations recorded.</span>`
+              }
+            </div>
+          </div>
+
+          <div class="section-block">
+            <div class="section-title"><span>Synonyms</span></div>
+            <div class="chip-wrap">
+              ${entry.synonyms?.length
+                ? entry.synonyms.map(s => `<button class="word-pill" data-lookup="${escapeHtml(s)}" type="button">${escapeHtml(s)}</button>`).join('')
+                : `<span style="color:var(--text-muted);font-size:0.86rem;">No direct synonyms found.</span>`
+              }
+            </div>
+          </div>
+
+          <div class="section-block">
+            <div class="section-title"><span>Antonyms &amp; Related Words</span></div>
+            <div class="chip-wrap" style="margin-bottom:${entry.related?.length ? '10px' : '0'};">
+              ${entry.antonyms?.length
+                ? entry.antonyms.map(a => `<button class="word-pill antonym" data-lookup="${escapeHtml(a)}" type="button">${escapeHtml(a)}</button>`).join('')
+                : ''
+              }
+              ${entry.related?.length
+                ? entry.related.map(r => `<button class="word-pill" data-lookup="${escapeHtml(r)}" type="button">${escapeHtml(r)}</button>`).join('')
+                : ''
+              }
+              ${(!entry.antonyms?.length && !entry.related?.length) ? `<span style="color:var(--text-muted);font-size:0.86rem;">No antonyms or related entries found.</span>` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      if (state.tab === 'origins') {
+        const ety = entry.etymology;
+        const langs = entry.crossLanguages || [];
+        return `
+          <div class="section-block">
+            <div class="section-title"><span>Word Origin &amp; Etymology Story</span></div>
+            ${ety ? `
+              ${ety.roots?.length ? `<div class="root-badges">${ety.roots.map(r => `<span class="root-badge">${escapeHtml(r)}</span>`).join('')}</div>` : ''}
+              <p style="font-size:0.94rem;color:var(--text-soft);line-height:1.65;">${escapeHtml(ety.story)}</p>
+            ` : `<p style="color:var(--text-muted);font-size:0.88rem;">Detailed historical etymology wasn't listed on Wiktionary for "${escapeHtml(entry.word)}".</p>`}
+          </div>
+
+          <div class="section-block">
+            <div class="section-title"><span>Found in Other Languages</span></div>
+            ${langs.length ? `
+              <div class="lang-grid">
+                ${langs.map(l => `
+                  <div class="lang-card">
+                    <div class="lang-card-head">
+                      <span class="lang-name">${escapeHtml(l.lang)}</span>
+                      <span class="lang-word">${escapeHtml(l.word)}</span>
+                    </div>
+                    <div class="lang-meaning">${escapeHtml(l.meaning)}</div>
+                    <div class="lang-story">${escapeHtml(l.story)}</div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : `<p style="color:var(--text-muted);font-size:0.88rem;">No identical spelling entries found in other Wiktionary language sections for "${escapeHtml(entry.word)}".</p>`}
+          </div>
+        `;
+      }
+      return '';
+    }
+
+    function renderEntry(entry) {
+      state.currentEntry = entry;
+      const saved = isBookmarked(entry.word);
+      const showBn = state.mode === 'dual' || state.mode === 'bn';
+
+      resultRoot.innerHTML = `
+        <article class="entry-card">
+          <div class="entry-header">
+            <div>
+              <div class="word-meta-top">
+                <span class="badge badge-cefr">CEFR ${escapeHtml(entry.cefr || 'B2')}</span>
+                <span class="badge badge-src ${entry.source === 'offline' ? 'offline' : 'live'}">
+                  ${entry.source === 'offline' ? '● Instant Offline' : '● Live Free API'}
+                </span>
+              </div>
+              <h2 class="headword">${escapeHtml(entry.word)}</h2>
+              ${showBn && entry.bnPrimary ? `<div class="bn-hero bn">${escapeHtml(entry.bnPrimary)}</div>` : ''}
+            </div>
+
+            <div class="entry-actions">
+              <button class="action-circle ${saved ? 'saved' : ''}" id="bookmarkToggleBtn" type="button" title="${saved ? 'Remove Bookmark' : 'Bookmark Word'}" aria-label="Bookmark word">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="${saved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              </button>
+              <button class="action-circle" id="copyEntryBtn" type="button" title="Copy Entry" aria-label="Copy entry">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="phonetics-row">
+            <button class="audio-pill uk" id="speakUkBtn" type="button">
+              <span class="region">UK</span>
+              <span class="ipa">${escapeHtml(entry.phonetics.uk)}</span>
+              <span aria-hidden="true">🔊</span>
+            </button>
+            <button class="audio-pill us" id="speakUsBtn" type="button">
+              <span class="region">US</span>
+              <span class="ipa">${escapeHtml(entry.phonetics.us)}</span>
+              <span aria-hidden="true">🔊</span>
+            </button>
+          </div>
+
+          <div class="tabs-bar" role="tablist">
+            <button class="tab-btn ${state.tab === 'definitions' ? 'active' : ''}" data-tab="definitions" type="button">Definitions</button>
+            <button class="tab-btn ${state.tab === 'forms' ? 'active' : ''}" data-tab="forms" type="button">Forms &amp; Tenses</button>
+            <button class="tab-btn ${state.tab === 'usage' ? 'active' : ''}" data-tab="usage" type="button">Usage &amp; Synonyms</button>
+            <button class="tab-btn ${state.tab === 'origins' ? 'active' : ''}" data-tab="origins" type="button">Origins &amp; Languages</button>
+          </div>
+
+          <div id="tabBody">${renderTabBody(entry)}</div>
+        </article>
+      `;
+
+      $('speakUkBtn').addEventListener('click', (e) => speakWord(entry.word, 'uk', entry.phonetics.ukAudio, e.currentTarget));
+      $('speakUsBtn').addEventListener('click', (e) => speakWord(entry.word, 'us', entry.phonetics.usAudio, e.currentTarget));
+      $('bookmarkToggleBtn').addEventListener('click', () => toggleBookmark(entry));
+      $('copyEntryBtn').addEventListener('click', () => copyEntry(entry));
+
+      resultRoot.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.tab = btn.dataset.tab;
+          bridgeHaptic('tab');
+          renderEntry(entry);
+        });
+      });
+
+      resultRoot.querySelectorAll('[data-lookup]').forEach(btn => {
+        btn.addEventListener('click', () => lookupWord(btn.dataset.lookup));
+      });
+    }
+
+    /* ==================== LOOKUP CONTROLLER ==================== */
+    let activeReqId = 0;
+    async function lookupWord(rawWord, pushStack = true) {
+      const clean = (rawWord || '').trim().toLowerCase();
+      if (!clean) return;
+      hideAutocomplete();
+      searchInput.value = clean;
+      clearBtn.hidden = false;
+
+      if (pushStack && state.currentEntry && state.currentEntry.word !== clean) {
+        state.navStack.push(state.currentEntry.word);
+        if (state.navStack.length > 20) state.navStack.shift();
+      }
+
+      const reqId = ++activeReqId;
+
+      if (OFFLINE_DB[clean]) {
+        const entry = OFFLINE_DB[clean];
+        recordHistory(entry);
+        renderEntry(entry);
+        return;
+      }
+
+      if (state.cache[clean]) {
+        const entry = state.cache[clean];
+        recordHistory(entry);
+        renderEntry(entry);
+        return;
+      }
+
+      renderSkeleton();
+      const live = await fetchLiveEntry(clean);
+      if (reqId !== activeReqId) return;
+
+      if (!live) {
+        await renderNotFound(clean);
+        return;
+      }
+
+      state.cache[clean] = live;
+      recordHistory(live);
+      renderEntry(live);
+    }
+
+    /* ==================== BOOKMARKS, HISTORY & CLIPBOARD ==================== */
+    function compactSummary(entry) {
+      return {
+        word: entry.word,
+        pos: entry.meanings?.[0]?.pos || '',
+        ipa: entry.phonetics?.uk || '',
+        en: (entry.overview || '').slice(0, 120),
+        bn: entry.bnPrimary || ''
+      };
+    }
+
+    function recordHistory(entry) {
+      const item = compactSummary(entry);
+      state.history = [item, ...state.history.filter(x => x.word !== item.word)].slice(0, 30);
+      storage.set('glass_dict_history', state.history);
+      syncWidgetPayload();
+    }
+
+    function toggleBookmark(entry) {
+      const exists = isBookmarked(entry.word);
+      if (exists) {
+        state.bookmarks = state.bookmarks.filter(b => b.word.toLowerCase() !== entry.word.toLowerCase());
+        showToast(`Removed "${entry.word}" from bookmarks`);
+      } else {
+        state.bookmarks = [compactSummary(entry), ...state.bookmarks].slice(0, 50);
+        showToast(`Bookmarked "${entry.word}"`);
+      }
+      bridgeHaptic('bookmark');
+      storage.set('glass_dict_bookmarks', state.bookmarks);
+      updateBookmarkCount();
+      renderEntry(entry);
+      if (drawer.classList.contains('open')) renderLibrary();
+      syncWidgetPayload();
+    }
+
+    function updateBookmarkCount() {
+      $('bookmarkCount').textContent = state.bookmarks.length;
+    }
+
+    async function copyEntry(entry) {
+      const text = `${entry.word} (${entry.phonetics.uk})\nবাংলা: ${entry.bnPrimary}\nOverview: ${entry.overview}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('Copied entry to clipboard');
+      } catch (_) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast('Copied entry to clipboard');
+      }
+    }
+
+    /* ==================== LIBRARY DRAWER ==================== */
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerBackdrop.classList.add('open');
+      bridgeHaptic('drawer');
+      renderLibrary();
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerBackdrop.classList.remove('open');
+    }
+
+    function renderLibrary() {
+      const list = state.libTab === 'bookmarks' ? state.bookmarks : state.history;
+      $('libTabBookmarks').classList.toggle('active', state.libTab === 'bookmarks');
+      $('libTabHistory').classList.toggle('active', state.libTab === 'history');
+      const container = $('libraryList');
+
+      if (!list.length) {
+        container.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:30px 10px;font-size:0.9rem;">No ${state.libTab === 'bookmarks' ? 'saved bookmarks' : 'recent searches'} yet.</p>`;
+        return;
+      }
+
+      container.innerHTML = list.map(item => `
+        <div class="lib-item" data-word="${escapeHtml(item.word)}">
+          <div>
+            <div class="lib-word">${escapeHtml(item.word)}</div>
+            ${item.bn ? `<div class="lib-bn bn">${escapeHtml(item.bn)}</div>` : ''}
+          </div>
+          <span style="color:var(--text-muted);font-size:0.85rem;">→</span>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.lib-item').forEach(el => {
+        el.addEventListener('click', () => {
+          closeDrawer();
+          lookupWord(el.dataset.word);
+        });
+      });
+    }
+
+    /* ==================== AUTOCOMPLETE ==================== */
+    let acTimer = null;
+    function hideAutocomplete() {
+      acDropdown.hidden = true;
+      state.acIndex = -1;
+      state.acItems = [];
+    }
+
+    async function fetchAutocomplete(q) {
+      const clean = q.trim().toLowerCase();
+      if (clean.length < 2) { hideAutocomplete(); return; }
+
+      const offlineMatches = Object.keys(OFFLINE_DB)
+        .filter(k => k.startsWith(clean))
+        .map(w => ({ word: w, offline: true }));
+
+      const live = await fetchJson(`https://api.datamuse.com/sug?s=${encodeURIComponent(clean)}&max=6`, 0, 3000);
+      const seen = new Set(offlineMatches.map(x => x.word));
+      const merged = [...offlineMatches];
+      (live || []).forEach(x => {
+        if (x.word && !seen.has(x.word.toLowerCase()) && merged.length < 6) {
+          seen.add(x.word.toLowerCase());
+          merged.push({ word: x.word, offline: false });
+        }
+      });
+
+      if (!merged.length || searchInput.value.trim().toLowerCase() !== clean) {
+        hideAutocomplete();
+        return;
+      }
+
+      state.acItems = merged;
+      state.acIndex = -1;
+      acDropdown.innerHTML = merged.map((m, i) => `
+        <button class="ac-item" type="button" data-idx="${i}">
+          <span>${escapeHtml(m.word)}</span>
+          <span class="ac-tag">${m.offline ? 'Instant' : 'Lookup'}</span>
+        </button>
+      `).join('');
+      acDropdown.hidden = false;
+
+      acDropdown.querySelectorAll('.ac-item').forEach(btn => {
+        btn.addEventListener('click', () => lookupWord(merged[Number(btn.dataset.idx)].word));
+      });
+    }
+
+    /* ==================== EVENT WIRING ==================== */
+    $('searchForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (state.acIndex >= 0 && state.acItems[state.acIndex]) {
+        lookupWord(state.acItems[state.acIndex].word);
+      } else {
+        lookupWord(searchInput.value);
+      }
+    });
+
+    searchInput.addEventListener('input', () => {
+      clearBtn.hidden = !searchInput.value;
+      clearTimeout(acTimer);
+      acTimer = setTimeout(() => fetchAutocomplete(searchInput.value), 220);
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (acDropdown.hidden) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        state.acIndex = (state.acIndex + 1) % state.acItems.length;
+        updateAcSelection();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        state.acIndex = (state.acIndex - 1 + state.acItems.length) % state.acItems.length;
+        updateAcSelection();
+      } else if (e.key === 'Escape') {
+        hideAutocomplete();
+      }
+    });
+
+    function updateAcSelection() {
+      acDropdown.querySelectorAll('.ac-item').forEach((el, idx) => {
+        el.classList.toggle('selected', idx === state.acIndex);
+      });
+    }
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearBtn.hidden = true;
+      hideAutocomplete();
+      searchInput.focus();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.search-wrap')) hideAutocomplete();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      } else if (e.key === 'Escape') {
+        hideAutocomplete();
+        if (drawer.classList.contains('open')) closeDrawer();
+      }
+    });
+
+    document.querySelectorAll('.theme-dot').forEach(btn => {
+      btn.addEventListener('click', () => applyTheme(btn.dataset.t));
+    });
+
+    document.querySelectorAll('.lang-toggle .lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyMode(btn.dataset.mode));
+    });
+
+    document.querySelectorAll('.quick-row .pill-chip').forEach(btn => {
+      btn.addEventListener('click', () => lookupWord(btn.dataset.word));
+    });
+
+    $('openLibraryBtn').addEventListener('click', openDrawer);
+    $('closeDrawerBtn').addEventListener('click', closeDrawer);
+    drawerBackdrop.addEventListener('click', closeDrawer);
+
+    $('libTabBookmarks').addEventListener('click', () => { state.libTab = 'bookmarks'; renderLibrary(); });
+    $('libTabHistory').addEventListener('click', () => { state.libTab = 'history'; renderLibrary(); });
+    $('clearLibBtn').addEventListener('click', () => {
+      if (state.libTab === 'bookmarks') {
+        state.bookmarks = [];
+        storage.set('glass_dict_bookmarks', []);
+        updateBookmarkCount();
+      } else {
+        state.history = [];
+        storage.set('glass_dict_history', []);
+      }
+      renderLibrary();
+      if (state.currentEntry) renderEntry(state.currentEntry);
+      syncWidgetPayload();
+      showToast('List cleared');
+    });
+
+    /* ==================== EXPOSE GLOBAL BRIDGE FOR ANDROID SHELL ==================== */
+    window.GlassApp = {
+      lookupWord: (w) => lookupWord(w),
+      focusSearch: () => { searchInput.focus(); searchInput.select(); },
+      handleAndroidBack: () => {
+        if (drawer.classList.contains('open')) { closeDrawer(); return true; }
+        if (!acDropdown.hidden) { hideAutocomplete(); return true; }
+        if (state.navStack.length) {
+          lookupWord(state.navStack.pop(), false);
+          return true;
+        }
+        return false;
+      }
+    };
+
+    /* ==================== PWA SERVICE WORKER & INSTALL PROMPT ==================== */
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+
+    let deferredInstallPrompt = null;
+    const installBtn = $('pwaInstallBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      installBtn.hidden = false;
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (!deferredInstallPrompt) return;
+      const promptEvent = deferredInstallPrompt;
+      deferredInstallPrompt = null;
+      installBtn.hidden = true;
+      await promptEvent.prompt();
+      const choice = await promptEvent.userChoice;
+      if (choice?.outcome === 'accepted') showToast('Installing Cambridge Glass Dictionary...');
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      installBtn.hidden = true;
+      showToast('App installed! Open it anytime from your Home screen.');
+    });
+
+    /* ==================== INIT ==================== */
+    applyTheme(state.theme, true);
+    applyMode(state.mode);
+    updateBookmarkCount();
+
+    const params = new URLSearchParams(window.location.search);
+    const initialWord = params.get('q') || params.get('word');
+    if (initialWord) {
+      lookupWord(initialWord, false);
+    } else {
+      const picks = Object.keys(OFFLINE_DB);
+      const dayIdx = Math.floor(Date.now() / 86400000) % picks.length;
+      lookupWord(picks[dayIdx], false);
+    }
+  })();
+  </script>
+</body>
+</html>
